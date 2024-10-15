@@ -7,7 +7,7 @@ let DStyle = ({ isActive }) => {
 
 const Navbar = () => {
 	return (
-		<nav className="flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light">
+		<nav className="flex justify-between items-center fixed z-10  w-full py-5 px-8 top-0 text-sm font-light">
 			{
 				/// [Links: Home & Product]
 			}
