@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { ShoppingCartContext } from "@/contexts";
+import { useContext } from 'react';
+import { ShoppingCartContext } from '@/contexts';
+import { PlusIcon } from '@heroicons/react/24/outline';
 
 const Card = ({ data }) => {
-
 	const context = useContext(ShoppingCartContext);
 
 	return (
@@ -17,8 +17,12 @@ const Card = ({ data }) => {
 					alt={data.title}
 				/>
 
-				<button onClick={() => context.setCount(context.count + 1)} type="button" className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1">
-					+
+				<button
+					onClick={() => context.setCount(context.count + 1)}
+					type="button"
+					className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
+				>
+					<PlusIcon className='h-6 w-6 text-black'></PlusIcon>
 				</button>
 			</figure>
 			<p className="flex justify-between">
