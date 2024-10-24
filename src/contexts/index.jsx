@@ -1,12 +1,23 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext } from 'react';
+// import { useCartStore } from './useCart/useCart';
 
-export const ShoppingCartContext = createContext();
+// import { useProductDetail } from './productContext/useProductDetails';
+import { useProductDetail } from './ProductContext';
+import { useCartStore } from './CartContext';
 
-export const ShoppingCartProvider = ({ children }) => {
-	const [count, setCount] = useState(0);
+export const AppContext = createContext();
+
+export const AppProvider = ({ children }) => {
+	const cart = useCartStore();
+	const productDetail = useProductDetail();
+
+	const initialState = {
+		cart,
+		productDetail,
+	};
+
 	return (
-		<ShoppingCartContext.Provider value={{ count, setCount }}>
-			{children}
-		</ShoppingCartContext.Provider>
+		<AppContext.Provider value={initialState}>{children}</AppContext.Provider>
 	);
 };
+export const useAppContext = () => useContext(AppContext);
