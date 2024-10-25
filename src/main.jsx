@@ -7,9 +7,9 @@ import { AppProvider } from './contexts';
 // import { CartProvider } from './contexts/useCart/useCart';
 
 createRoot(document.getElementById('root')).render(
-	<AppProvider>
-		<StrictMode>
+	<StrictMode>
+		<AppProvider>
 			<App />
-		</StrictMode>
-	</AppProvider>
+		</AppProvider>
+	</StrictMode>
 );
