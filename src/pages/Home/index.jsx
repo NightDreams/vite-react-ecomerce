@@ -3,12 +3,24 @@ import Layout from '@/components/Layout';
 import { useEffect, useState } from 'react';
 import ProductDetail from './../../components/ProductDetail/index';
 export default function Home() {
-	const [items, setItems] = useState(null);
+	const [items, setItems] = useState([]);
+	const GetData = () => {
+		const urls = {
+			platzi: 'https://api.escuelajs.co/api/v1/products',
+			fakeStore: 'https://fakestoreapi.in/api/products',
+		};
+
+		try {
+			fetch(urls.platzi)
+				.then(response => response.json())
+				.then(data => setItems(data?.products || data));
+		} catch (error) {
+			console.log('🚀 ~ GetData ~ error:', error);
+		}
+	};
 
 	useEffect(() => {
-		fetch('https://api.escuelajs.co/api/v1/products')
-			.then(response => response.json())
-			.then(data => setItems(data));
+		GetData();
 	}, []);
 
 	return (
