@@ -11,7 +11,7 @@ export default function Home() {
 		};
 
 		try {
-			fetch(urls.platzi)
+			fetch(urls.fakeStore)
 				.then(response => response.json())
 				.then(data => setItems(data?.products || data));
 		} catch (error) {
