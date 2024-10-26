@@ -1,21 +1,20 @@
-import { PlusIcon } from '@heroicons/react/24/outline';
 import { useAppContext } from '@/contexts';
+import { PlusIcon } from '@heroicons/react/24/outline';
 
 const Card = ({ data }) => {
 	const { cart, productDetail } = useAppContext();
-
 	return (
 		<div
-			className="bg-white  w-56 h-60 rounded-lg cursor-pointer"
-			onClick={productDetail?.toggleDetail}
+			className="w-56 h-60 rounded-lg cursor-pointer p-4 bg-gray-300 "
+			onClick={() => productDetail?.showProduct(data)}
 		>
 			<figure className="relative mb-2 w-full h-4/5">
-				<span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
-					{data?.category.name}
+				<span className="absolute bottom-0 left-0 bg-gray-200 rounded-lg text-black text-xs m-2 px-3 py-0.5">
+					{data?.category}
 				</span>
 				<img
 					className="w-full h-full object-cover rounded-lg"
-					src={data?.images?.[0]}
+					src={data?.image}
 					alt={data?.title}
 				/>
 				<button
@@ -27,8 +26,8 @@ const Card = ({ data }) => {
 				</button>
 			</figure>
 			<p className="flex justify-between">
-				<span className="text-sm font-light">{data?.title}</span>
-				<span className="text-lg font-medium">{data?.price}</span>
+				<span className="text-sm font-light truncate ">{data?.title}</span>
+				<span className="text-lg font-medium">${data?.price}</span>
 			</p>
 		</div>
 	);

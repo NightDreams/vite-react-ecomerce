@@ -6,9 +6,28 @@ export const ProductDetailContext = createContext();
 export const useProductDetail = () => {
 	const [showDetail, setShowDetail] = useState(false);
 
-	const toggleDetail = () => setShowDetail(prev => !prev);
+	// Product controls: open, close
+	const openDetail = () => setShowDetail(true);
+	const closeDetail = () => setShowDetail(false);
 
-	return { showDetail, setShowDetail, toggleDetail };
+	// store propduct data
+	const [productToShow, setProductToShow] = useState({});
+
+	// render product detail
+	const showProduct = productDetail => {
+		openDetail();
+		setProductToShow(productDetail);
+	};
+
+	return {
+		showDetail,
+		setShowDetail,
+		openDetail,
+		closeDetail,
+		productToShow,
+		setProductToShow,
+		showProduct,
+	};
 };
 
 export const ProductDetailProvider = ({ children }) => {
