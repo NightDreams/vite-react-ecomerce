@@ -3,7 +3,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const ProductDetail = () => {
 	const { productDetail } = useAppContext();
-	console.log('🚀 ~ ProductDetail ~ productDetail:', productDetail);
+	// console.log('🚀 ~ ProductDetail ~ productDetail:', productDetail);
 
 	return (
 		<aside

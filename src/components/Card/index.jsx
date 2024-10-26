@@ -3,6 +3,7 @@ import { PlusIcon } from '@heroicons/react/24/outline';
 
 const Card = ({ data }) => {
 	const { cart, productDetail } = useAppContext();
+
 	return (
 		<div
 			className="w-56 h-60 rounded-lg cursor-pointer p-4 bg-gray-300 "
@@ -18,7 +19,7 @@ const Card = ({ data }) => {
 					alt={data?.title}
 				/>
 				<button
-					onClick={cart?.incrementCount}
+					onClick={() => cart?.addProductsToCart(data)}
 					type="button"
 					className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
 				>
