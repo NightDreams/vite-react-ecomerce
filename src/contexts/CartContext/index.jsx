@@ -7,18 +7,12 @@ export const useCartStore = () => {
 
 	const incrementCount = e => {
 		e.stopPropagation();
-		setCount(prevCount => prevCount + 1);
+		setCount(count + 1);
 	};
 	const decrementCount = () =>
 		setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
 
 	const [cardProducts, setcardProducts] = useState([]);
-
-	const addProductsToCart = productData => {
-		setCount(count + 1);
-		setcardProducts(e => [...e, productData]);
-		console.log('CART: ', cardProducts);
-	};
 
 	return {
 		count,
@@ -26,7 +20,7 @@ export const useCartStore = () => {
 		incrementCount,
 		decrementCount,
 		cardProducts,
-		addProductsToCart,
+		setcardProducts,
 	};
 };
 // provider

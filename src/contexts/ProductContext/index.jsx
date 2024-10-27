@@ -13,10 +13,16 @@ export const useProductDetail = () => {
 	// store propduct data
 	const [productToShow, setProductToShow] = useState({});
 
+	// checkout card controls
+	const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
+	const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
+	const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
+
 	// render product detail
 	const showProduct = productDetail => {
 		openDetail();
 		setProductToShow(productDetail);
+		closeCheckoutSideMenu();
 	};
 
 	return {
@@ -27,6 +33,9 @@ export const useProductDetail = () => {
 		productToShow,
 		setProductToShow,
 		showProduct,
+		isCheckoutSideMenuOpen,
+		openCheckoutSideMenu,
+		closeCheckoutSideMenu,
 	};
 };
 

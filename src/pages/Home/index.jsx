@@ -2,6 +2,7 @@ import Card from '@/components/Card';
 import Layout from '@/components/Layout';
 import { useEffect, useState } from 'react';
 import ProductDetail from './../../components/ProductDetail/index';
+import CheckoutSideMenu from '@/components/CheckoutSideMenu';
 export default function Home() {
 	const [items, setItems] = useState([]);
 	const GetData = () => {
@@ -31,6 +32,7 @@ export default function Home() {
 				))}
 			</div>
 			<ProductDetail />
+			<CheckoutSideMenu />
 		</Layout>
 	);
 }
