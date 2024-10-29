@@ -1,7 +1,7 @@
-import { useAppContext } from '@/contexts';
-import Card from '../Card';
-
 import { XMarkIcon } from '@heroicons/react/24/solid';
+
+import { useAppContext } from '@/contexts';
+import OrderCard from '../OrderCard';
 import './styles.css';
 
 const CheckoutSideMenu = () => {
@@ -22,9 +22,9 @@ const CheckoutSideMenu = () => {
 					></XMarkIcon>
 				</div>
 			</div>
-			<div className="grid gap-4 grid-rows-1 justify-center overflow-y-scroll w-full max-w-screen-lg">
-				{cart?.cardProducts?.map(item => (
-					<Card key={item.id} data={item} />
+			<div className="grid justify-center overflow-y-scroll  w-full max-w-screen-lg">
+				{cart?.cardProducts?.map((item, i) => (
+					<OrderCard key={`${item?.id}-${i}`} data={item} />
 				))}
 			</div>
 		</aside>
